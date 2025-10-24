@@ -5,110 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <title>Dashboard - SaúdeMS</title>
-    <link rel="stylesheet" href="/src/css/header.css">
     <link rel="stylesheet" href="/src/css/dashboard.css">
     <script src="/src/js/dashboard.js" defer></script>
     <script src="/src/js/header.js" defer></script>
 </head>
-<body>
+<body data-theme="light">
     <div id="header"></div>
     
     <main class="dashboard-container">
         <div class="dashboard-header">
-            <h1><i class='bx bx-bar-chart-alt-2'></i> Dashboard de Avaliações</h1>
-            <p>Visualize as estatísticas das suas avaliações de saúde</p>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1><i class='bx bx-health'></i> Dashboard SaúdeMS</h1>
+                    <p>Monitoramento de avaliações de saúde nos municípios de Mato Grosso do Sul</p>
+                </div>
+                <div class="header-actions">
+                    <button id="themeToggle" class="theme-toggle" title="Alternar tema">
+                        <i class='bx bx-moon'></i>
+                    </button>
+                    <button onclick="exportData()" class="export-btn" title="Exportar dados">
+                        <i class='bx bx-download'></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        
-        <div class="parent">
-            <div class="card div1" data-tilt>
-                <div class="card-header">
-                    <i class='bx bx-user-check'></i>
-                    <h3>Total de Pacientes</h3>
-                </div>
-                <div class="card-content">
-                    <span class="number" data-value="1247">0</span>
-                    <span class="trend positive">+12%</span>
+
+        <!-- Cards de Estatísticas -->
+        <div class="stats-grid">
+            <div class="parent">
+                <div class="card-1"></div>
+                <div class="card-2"></div>
+                <div class="card-3"></div>
+                <div class="card-4"></div>
+                <div class="card-5"></div>
+                <div class="card-6"></div>
+                <div class="card-7"></div>
+                <div class="card-8"></div>
+            </div>
+        </div>
+
+        <!-- Seção do Mapa -->
+        <div class="map-section">
+            <div class="map-header">
+                <h2><i class='bx bx-map'></i> Mapa de Mato Grosso do Sul</h2>
+                <div class="map-controls">
+                    <div class="search-container">
+                        <input type="text" id="municipalSearch" placeholder="Buscar município..." class="search-input">
+                        <i class='bx bx-search'></i>
+                    </div>
+                    <div class="map-info-text">
+                        <p><i class='bx bx-info-circle'></i> O mapa será colorido conforme as avaliações forem sendo realizadas</p>
+                    </div>
                 </div>
             </div>
             
-            <div class="card div2" data-tilt>
-                <div class="card-header">
-                    <i class='bx bx-clipboard-plus'></i>
-                    <h3>Avaliações Realizadas</h3>
+            <div class="map-container">
+                <div id="svgMapContainer" class="svg-map">
+                    <!-- O mapa SVG será carregado aqui dinamicamente -->
                 </div>
-                <div class="card-content">
-                    <span class="number" data-value="3891">0</span>
-                    <span class="trend positive">+8%</span>
-                </div>
-            </div>
-            
-            <div class="card div3" data-tilt>
-                <div class="card-header">
-                    <i class='bx bx-time-five'></i>
-                    <h3>Consultas Pendentes</h3>
-                </div>
-                <div class="card-content">
-                    <span class="number" data-value="42">0</span>
-                    <span class="trend negative">-3%</span>
-                </div>
-            </div>
-            
-            <div class="card div4" data-tilt>
-                <div class="card-header">
-                    <i class='bx bx-check-circle'></i>
-                    <h3>Taxa de Conclusão</h3>
-                </div>
-                <div class="card-content">
-                    <span class="number" data-value="87">0</span>%
-                    <span class="trend positive">+5%</span>
-                </div>
-            </div>
-            
-            <div class="card div5" data-tilt>
-                <div class="card-header">
-                    <i class='bx bx-heart'></i>
-                    <h3>Satisfação</h3>
-                </div>
-                <div class="card-content">
-                    <span class="number" data-value="94">0</span>%
-                    <span class="trend positive">+2%</span>
-                </div>
-            </div>
-            
-            <div class="card div6" data-tilt>
-                <div class="card-header">
-                    <i class='bx bx-alarm'></i>
-                    <h3>Urgentes</h3>
-                </div>
-                <div class="card-content">
-                    <span class="number" data-value="7">0</span>
-                    <span class="trend neutral">0%</span>
-                </div>
-            </div>
-            
-            <div class="card div7" data-tilt>
-                <div class="card-header">
-                    <i class='bx bx-calendar-check'></i>
-                    <h3>Hoje</h3>
-                </div>
-                <div class="card-content">
-                    <span class="number" data-value="23">0</span>
-                    <span class="trend positive">+15%</span>
-                </div>
-            </div>
-            
-            <div class="card div8" data-tilt>
-                <div class="card-header">
-                    <i class='bx bx-trending-up'></i>
-                    <h3>Crescimento</h3>
-                </div>
-                <div class="card-content">
-                    <span class="number" data-value="18">0</span>%
-                    <span class="trend positive">+4%</span>
+                
+                <div class="map-info">
+                    <div class="info-card">
+                        <h3>Resumo Estadual</h3>
+                        <div class="summary-stats">
+                            <div class="summary-item">
+                                <i class='bx bx-buildings'></i>
+                                <div>
+                                    <span class="summary-number" id="totalMunicipalities">79</span>
+                                    <span class="summary-label">Municípios</span>
+                                </div>
+                            </div>
+                            <div class="summary-item">
+                                <i class='bx bx-area'></i>
+                                <div>
+                                    <span class="summary-number" id="totalArea">357,145</span>
+                                    <span class="summary-label">km² Total</span>
+                                </div>
+                            </div>
+                            <div class="summary-item">
+                                <i class='bx bx-health'></i>
+                                <div>
+                                    <span class="summary-number" id="totalEvaluationsMap">0</span>
+                                    <span class="summary-label">Avaliações</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Tooltip para o mapa -->
+    <div id="municipalTooltip" class="municipal-tooltip" style="display: none;"></div>
+
+    <!-- Modal para detalhes do município -->
+    <div id="municipalModal" class="modal" style="display: none;">
+        <div class="modal-content"></div>
+    </div>
 
 </body>
 </html>
