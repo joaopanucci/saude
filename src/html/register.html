@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/login.css">
+    <title>Registro</title>
+</head>
+<body>
+    <main class="container">
+        <section class="login-section">
+            <h1>Criar Conta</h1>
+            <form id="registerForm" class="login-form">
+                
+                <div class="input-group">
+                    <i class='bx bx-user'></i>
+                    <input type="text" placeholder="Nome completo" id="name" name="name" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class='bx bx-id-card'></i>
+                    <input type="text" placeholder="CPF" id="cpf" name="cpf" required maxlength="14">
+                </div>
+                
+                <div class="input-group">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" placeholder="Senha" id="password" name="password" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" placeholder="Confirmar senha" id="confirmPassword" name="confirmPassword" required>
+                </div>
+
+                <button type="submit">Registrar</button>
+                
+                <div class="register">
+                    <span>Já tem uma conta? <a href="/src/html/login.html">Faça login</a></span>
+                </div>
+            
+            </form>
+        </section>
+    </main>
+
+    <script src="/src/js/register.js"></script>
+</body>
+</html>

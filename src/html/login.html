@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/login.css">
+    <title>Login</title>
+</head>
+<body>
+    <main class="container">
+        <section class="login-section">
+            <h1>Login</h1>
+            <form id="loginForm" class="login-form">
+                
+                <div class="input-group">
+                    <i class='bx bx-user'></i>
+                    <input type="text" placeholder="CPF (apenas números)" id="cpf" name="cpf" required maxlength="11">
+                </div>
+                
+                <div class="input-group">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" placeholder="Senha" id="password" name="password" required>
+                </div>
+                
+                <div class="remember-me">
+                    <label for="remember-me">
+                        <input type="checkbox" id="remember-me" name="remember-me">
+                        Lembrar-me
+                    </label>
+                    <a href="/src/html/reset.html">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit">Entrar</button>
+                
+                <div class="register">
+                    <span>Não tem uma conta? <a href="/src/html/register.html">Registre-se</a></span>
+                </div>
+            
+            </form>
+        </section>
+    </main>
+
+    <!-- Adicionar o script JavaScript -->
+    <script src="/src/js/login.js"></script>
+</body>
+</html>
