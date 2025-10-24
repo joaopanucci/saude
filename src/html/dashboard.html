@@ -4,210 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <title>Dashboard - SaúdeMS+</title>
+    <title>Dashboard - SaúdeMS</title>
+    <link rel="stylesheet" href="/src/css/header.css">
     <link rel="stylesheet" href="/src/css/dashboard.css">
     <script src="/src/js/dashboard.js" defer></script>
+    <script src="/src/js/header.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h2>SaúdeMS+</h2>
-            </div>
-            <ul class="sidebar-menu">
-                <li><a href="#" class="active" data-section="overview"><i class='bx bx-home'></i>Visão Geral</a></li>
-                <li><a href="#" data-section="users"><i class='bx bx-user'></i>Usuários</a></li>
-                <li><a href="#" data-section="reports"><i class='bx bx-file'></i>Relatórios</a></li>
-                <li><a href="#" data-section="analytics"><i class='bx bx-bar-chart-alt-2'></i>Análises</a></li>
-                <li><a href="#" data-section="settings"><i class='bx bx-cog'></i>Configurações</a></li>
-                <li><a href="#" data-section="profile"><i class='bx bx-user-circle'></i>Perfil</a></li>
-            </ul>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Header -->
-            <header class="header">
-                <h1 id="page-title">Visão Geral</h1>
-                <div class="user-info">
-                    <div class="user-avatar">U</div>
-                    <span>Usuário</span>
-                    <button class="logout-btn" id="logoutBtn">
-                        <i class='bx bx-log-out'></i>
-                        Sair
-                    </button>
+    <div id="header"></div>
+    
+    <main class="dashboard-container">
+        <div class="dashboard-header">
+            <h1><i class='bx bx-bar-chart-alt-2'></i> Dashboard de Avaliações</h1>
+            <p>Visualize as estatísticas das suas avaliações de saúde</p>
+        </div>
+        
+        <div class="parent">
+            <div class="card div1" data-tilt>
+                <div class="card-header">
+                    <i class='bx bx-user-check'></i>
+                    <h3>Total de Pacientes</h3>
                 </div>
-            </header>
-
-            <!-- Dashboard Content -->
-            <div id="overview-section" class="section">
-                <div class="dashboard-grid">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon users">
-                                <i class='bx bx-user'></i>
-                            </div>
-                            <h3 class="card-title">Total de Usuários</h3>
-                        </div>
-                        <div class="card-value" id="userCount">1,234</div>
-                        <p class="card-description">+12% em relação ao mês anterior</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon reports">
-                                <i class='bx bx-file'></i>
-                            </div>
-                            <h3 class="card-title">Relatórios</h3>
-                        </div>
-                        <div class="card-value">89</div>
-                        <p class="card-description">Relatórios gerados este mês</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon analytics">
-                                <i class='bx bx-trending-up'></i>
-                            </div>
-                            <h3 class="card-title">Crescimento</h3>
-                        </div>
-                        <div class="card-value">+24%</div>
-                        <p class="card-description">Crescimento mensal</p>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon settings">
-                                <i class='bx bx-cog'></i>
-                            </div>
-                            <h3 class="card-title">Sistema</h3>
-                        </div>
-                        <div class="card-value">99.9%</div>
-                        <p class="card-description">Uptime do sistema</p>
-                    </div>
-                </div>
-
-                <div class="recent-activity">
-                    <div class="activity-header">
-                        <h3>Atividades Recentes</h3>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <i class='bx bx-user-plus'></i>
-                        </div>
-                        <div class="activity-content">
-                            <p class="activity-title">Novo usuário cadastrado</p>
-                            <p class="activity-time">Há 2 minutos</p>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <i class='bx bx-file'></i>
-                        </div>
-                        <div class="activity-content">
-                            <p class="activity-title">Relatório mensal gerado</p>
-                            <p class="activity-time">Há 1 hora</p>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <i class='bx bx-cog'></i>
-                        </div>
-                        <div class="activity-content">
-                            <p class="activity-title">Configurações atualizadas</p>
-                            <p class="activity-time">Há 3 horas</p>
-                        </div>
-                    </div>
+                <div class="card-content">
+                    <span class="number" data-value="1247">0</span>
+                    <span class="trend positive">+12%</span>
                 </div>
             </div>
-
-            <!-- Other sections (hidden by default) -->
-            <div id="users-section" class="section hidden">
-                <div class="card">
-                    <h3>Gerenciamento de Usuários</h3>
-                    <p>Aqui você pode gerenciar todos os usuários do sistema.</p>
-                    <div class="section-actions">
-                        <button class="action-button primary">
-                            <i class='bx bx-plus'></i>
-                            Adicionar Usuário
-                        </button>
-                        <button class="action-button secondary">
-                            <i class='bx bx-search'></i>
-                            Buscar Usuários
-                        </button>
-                    </div>
+            
+            <div class="card div2" data-tilt>
+                <div class="card-header">
+                    <i class='bx bx-clipboard-plus'></i>
+                    <h3>Avaliações Realizadas</h3>
+                </div>
+                <div class="card-content">
+                    <span class="number" data-value="3891">0</span>
+                    <span class="trend positive">+8%</span>
                 </div>
             </div>
-
-            <div id="reports-section" class="section hidden">
-                <div class="card">
-                    <h3>Relatórios</h3>
-                    <p>Visualize e gere relatórios detalhados do sistema.</p>
-                    <div class="section-actions">
-                        <button class="action-button primary">
-                            <i class='bx bx-file-plus'></i>
-                            Gerar Relatório
-                        </button>
-                        <button class="action-button secondary">
-                            <i class='bx bx-download'></i>
-                            Baixar Relatórios
-                        </button>
-                    </div>
+            
+            <div class="card div3" data-tilt>
+                <div class="card-header">
+                    <i class='bx bx-time-five'></i>
+                    <h3>Consultas Pendentes</h3>
+                </div>
+                <div class="card-content">
+                    <span class="number" data-value="42">0</span>
+                    <span class="trend negative">-3%</span>
                 </div>
             </div>
-
-            <div id="analytics-section" class="section hidden">
-                <div class="card">
-                    <h3>Análises</h3>
-                    <p>Acompanhe métricas e análises de desempenho.</p>
-                    <div class="section-actions">
-                        <button class="action-button primary">
-                            <i class='bx bx-bar-chart-alt-2'></i>
-                            Ver Gráficos
-                        </button>
-                        <button class="action-button secondary">
-                            <i class='bx bx-export'></i>
-                            Exportar Dados
-                        </button>
-                    </div>
+            
+            <div class="card div4" data-tilt>
+                <div class="card-header">
+                    <i class='bx bx-check-circle'></i>
+                    <h3>Taxa de Conclusão</h3>
+                </div>
+                <div class="card-content">
+                    <span class="number" data-value="87">0</span>%
+                    <span class="trend positive">+5%</span>
                 </div>
             </div>
-
-            <div id="settings-section" class="section hidden">
-                <div class="card">
-                    <h3>Configurações</h3>
-                    <p>Configure as preferências do sistema.</p>
-                    <div class="section-actions">
-                        <button class="action-button primary">
-                            <i class='bx bx-edit'></i>
-                            Editar Configurações
-                        </button>
-                        <button class="action-button secondary">
-                            <i class='bx bx-reset'></i>
-                            Restaurar Padrões
-                        </button>
-                    </div>
+            
+            <div class="card div5" data-tilt>
+                <div class="card-header">
+                    <i class='bx bx-heart'></i>
+                    <h3>Satisfação</h3>
+                </div>
+                <div class="card-content">
+                    <span class="number" data-value="94">0</span>%
+                    <span class="trend positive">+2%</span>
                 </div>
             </div>
-
-            <div id="profile-section" class="section hidden">
-                <div class="card">
-                    <h3>Perfil do Usuário</h3>
-                    <p>Gerencie suas informações pessoais e preferências.</p>
-                    <div class="section-actions">
-                        <button class="action-button primary">
-                            <i class='bx bx-edit'></i>
-                            Editar Perfil
-                        </button>
-                        <button class="action-button secondary">
-                            <i class='bx bx-lock'></i>
-                            Alterar Senha
-                        </button>
-                    </div>
+            
+            <div class="card div6" data-tilt>
+                <div class="card-header">
+                    <i class='bx bx-alarm'></i>
+                    <h3>Urgentes</h3>
+                </div>
+                <div class="card-content">
+                    <span class="number" data-value="7">0</span>
+                    <span class="trend neutral">0%</span>
                 </div>
             </div>
-        </main>
-    </div>
+            
+            <div class="card div7" data-tilt>
+                <div class="card-header">
+                    <i class='bx bx-calendar-check'></i>
+                    <h3>Hoje</h3>
+                </div>
+                <div class="card-content">
+                    <span class="number" data-value="23">0</span>
+                    <span class="trend positive">+15%</span>
+                </div>
+            </div>
+            
+            <div class="card div8" data-tilt>
+                <div class="card-header">
+                    <i class='bx bx-trending-up'></i>
+                    <h3>Crescimento</h3>
+                </div>
+                <div class="card-content">
+                    <span class="number" data-value="18">0</span>%
+                    <span class="trend positive">+4%</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
 </body>
 </html>

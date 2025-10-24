@@ -2,9 +2,9 @@
 
 .header-site {
     font-family: 'Poppins', sans-serif;
-  background-color: #0d1117;
+  background-color: #0077ff;
   color: #fff;
-  padding: 15px 30px;
+  padding: 10px 30px; /* Reduzi o padding para compensar a logo */
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   position: fixed;
   top: 0;
@@ -21,6 +21,30 @@
   max-width: 1200px; /* largura máxima (ajustável) */
   margin: 0 auto; /* centraliza o conteúdo horizontalmente */
   width: 100%;
+}
+
+/* Estilização da logo */
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* Impede que a logo seja comprimida */
+}
+
+.logo a {
+  display: block;
+  line-height: 0; /* Remove espaçamento extra */
+}
+
+.logo img {
+  height: 40px; /* Altura fixa da logo */
+  width: auto; /* Largura automática para manter proporção */
+  max-width: 150px; /* Largura máxima para não ficar muito larga */
+  object-fit: contain; /* Mantém a proporção da imagem */
+  transition: opacity 0.2s ease;
+}
+
+.logo img:hover {
+  opacity: 0.8;
 }
 
 .nav-logo {
@@ -45,7 +69,9 @@
   color: #fff;
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.9rem; /* Texto um pouco menor para economizar espaço */
   transition: color 0.2s ease;
+  white-space: nowrap; /* Impede quebra de linha nos links */
 }
 
 .nav-link a:hover {
@@ -55,6 +81,51 @@
 /* Para o corpo não ficar sob o header fixo */
 body {
   margin: 0;
-  padding-top: 80px;
+  padding-top: 70px; /* Reduzi para compensar o header menor */
   font-family: Arial, sans-serif;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .header-site {
+    padding: 8px 15px;
+  }
+  
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .logo img {
+    height: 35px;
+  }
+  
+  .nav-link {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-link a {
+    font-size: 0.8rem;
+  }
+  
+  body {
+    padding-top: 100px; /* Mais espaço para o header de duas linhas */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    gap: 10px;
+  }
+  
+  .nav-link a {
+    font-size: 0.75rem;
+    padding: 5px;
+  }
+  
+  body {
+    padding-top: 120px;
+  }
 }
